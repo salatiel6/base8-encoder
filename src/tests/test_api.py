@@ -1,7 +1,7 @@
 import pytest
 import json
 
-from shape_challenge.api.src import app
+from shape_challenge.src.controllers import app
 
 
 @pytest.fixture
