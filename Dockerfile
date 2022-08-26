@@ -2,7 +2,7 @@
 
 FROM python:3.10.1
 
-WORKDIR /app
+WORKDIR /src
 COPY    requirements.txt ./
 
 RUN pip install --no-cache-dir -U pip setuptools && \

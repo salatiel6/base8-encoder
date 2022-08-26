@@ -1,10 +1,10 @@
 import re
 
-from flask_restx import Resource, fields
+from flask_restx import Resource
 from .encoder import Encoder
 from .decoder import Decoder
-from shape_challenge.src.server import server
-from shape_challenge.src.docs import encode_model, decode_model
+from server import server
+from docs import encode_model, decode_model
 
 app, api = server.app, server.api
 
