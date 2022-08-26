@@ -9,7 +9,7 @@ class Server:
             self.app,
             default="Endpoints",
             default_label="Endpoints from API",
-            version="v0.4.1",
+            version="v0.4.2",
             title="Shape Challenge API",
             doc="/docs"
         )

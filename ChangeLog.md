@@ -1,3 +1,6 @@
+> ![](https://img.shields.io/badge/Aug_26,_2022-black) ![](https://img.shields.io/badge/v0.4.2-FIX-gren)  
+> `Fixed one test that was not passing`
+
 > ![](https://img.shields.io/badge/Aug_26,_2022-black) ![](https://img.shields.io/badge/v0.4.1-REFACTOR-red)  
 > `Reorganized the swagger documentation`
 

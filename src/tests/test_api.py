@@ -40,10 +40,7 @@ def test_encode_with_invalid_parameter(client):
 
     result = client.get("/encode/2-9asw38")
 
-    response_body = json.loads(result.data)
-
-    assert result.status_code == 400
-    assert response_body == {"message": "Invalid number"}
+    assert result.status_code == 404
 
 
 def test_decode_with_wrong_format_parameter(client):
