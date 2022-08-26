@@ -36,6 +36,38 @@ For encoding the number ina code with fixed six characters, I chose to use base3
 | 15      | F                         | 31      | V                         |
 
 So I get the number (which must have a maximun of 8 characters) and do the manual conversion from decimal to base32
-I had to do the conversion manually because I couldn't find a way to do it properly with `python-base64` library.
-The convertions it does are from another base32 pattern, not the extended alphabet.
+I had to do the conversion manually because I couldn't find a way to do it properly with `python-base64` library.  
+The convertions it does are from another base32 pattern, not the extended alphabet.  
 For manual converting a decimal number to a base32 we need to do like this:
+
+![dec_to_hex](assets/dec_to_hex.png)
+
+Receiving `99999999` as the number, it will be encoded to `2VBO7V`
+
+This is how this conversion looks in the code:
+```
+def encode(self):
+    config = Config()
+    encoded = ""
+
+    module_list = []
+
+    while self._number >= 32:
+        module_list.append(self._number % 32)
+        self._number //= 32
+
+    module_list.append(self._number)
+
+    module_list = module_list[::-1]
+
+    for i in module_list:
+        encoded += config.cipher[i]
+
+    while len(encoded) < 6:
+        encoded += "="
+
+    return encoded
+```
+**OBS**: As you can see, if the code generated does not have 6 characters, it will add `=` until the size is filled.  
+If you pass `1234` as the number, the conversion to base32 will return `16I`. So it will have 3 `=` signs at the end of the code:  
+`1234 -> 16I===`
