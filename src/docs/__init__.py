@@ -1,1 +1,1 @@
-from .models import encode_model, decode_model
+from .models import encode_model, decode_model, error_model

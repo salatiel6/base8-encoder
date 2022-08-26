@@ -9,6 +9,12 @@ encode_model = server.api.model(
     }
 )
 
+error_model = server.api.model(
+    "error_model", {
+        "message": fields.String()
+    }
+)
+
 decode_model = server.api.model(
     "decode_model", {
         "decoded": fields.Integer(

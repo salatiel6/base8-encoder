@@ -7,7 +7,7 @@ class Server():
         self.app = Flask(__name__)
         self.api = Api(
             self.app,
-            version="v0.2.0",
+            version="v0.4.0",
             title="Shape Challenge API",
             doc="/docs"
         )
