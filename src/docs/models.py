@@ -1,5 +1,5 @@
 from flask_restx import fields
-from shape_challenge.src.server import server
+from server import server
 
 encode_model = server.api.model(
     "encode_model", {
