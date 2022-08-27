@@ -21,7 +21,7 @@ The challenge was to build an API which could receive a number, encode it, and a
 The whole solution was built with `Flask`, tested with `pytest`, and documented with `flask-restx`.
 
 ## The Encode Feature
-For encoding the number ina code with fixed six characters, I chose to use base32 with the expanded hexadecimal alphabet
+For encoding the number in a code with fixed six characters, I chose to use base32 with the expanded hexadecimal alphabet
 
 | Decimal | Base32(Hex-like alphabet) | Decimal | Base32(Hex-like alphabet) |
 |---------|---------------------------|---------|---------------------------|
@@ -80,10 +80,10 @@ _cipher = {
 }
 ```
 
-So I get the number (which must have a maximum of 8 characters) and do the manual conversion from decimal to base32
+So I get the number (which must have a maximum of 8 characters) and do the manual conversion from decimal to base32.  
 I had to do the conversion manually because I couldn't find a way to do it properly with `python-base64` library.  
 The conversions it does are from another base32 pattern, not the extended alphabet.  
-For manual converting a decimal number to a base32 we need to do like this:
+For manual converting a decimal number, to a base32 we need to do like this:
 
 ![dec_to_hex](assets/dec_to_hex.png)
 
@@ -113,7 +113,7 @@ def encode(self):
 
     return encoded
 ```
-**OBS**: As you can see, if the code generated does not have 6 characters, it will add `=` until the size is filled.  
+**OBS**: As you can see, if the code generated does not have 6 characters, it will add `=` signs until the size is filled.  
 
 If you pass `1234` as the number, the conversion to base32 will return `16I`. So it will have 3 `=` signs at the end of the code:  
 
@@ -125,7 +125,7 @@ It is done like this:
 
 ![hex_to_dec](assets/hex_to_dec.png)
 
-Receiving the `2VBO7V` as the encoded parameter it will decode i t back to `99999999`  
+When receiving the `2VBO7V` as the encoded parameter, it will decode back to `99999999`  
 This is how this conversion looks in the code:
 ```
 def decode(self):
@@ -145,7 +145,7 @@ def decode(self):
 
     return decoded
 ```
-**OBS**: As you can see on the code. If the encoded string has the `=` signals to match the required length. The signs will be removed before the calculation starts.  
+**OBS**: As you can see on the code. If the encoded string has the `=` signs to match the required length. The signs will be removed before the calculation starts.  
 
 If you pass `16I===` as the code, it will be turned to `16I`, and after that decode it back to `1234`:  
 
@@ -204,7 +204,7 @@ With coverage: `pytest -vv --cov=. --cov-report=term-missing --cov-config=.cover
 11. Check the API [Documentation](#documentation)  
 
 ## How To Run With Docker
-This application was developed in a Windows OS. So I'm not sure if Linux or Mac can run the container.
+This application was developed in a Windows OS. So I'm not sure if Linux or Mac could run the container.
 
 Requirements:
 - [Git](https://git-scm.com/downloads)
